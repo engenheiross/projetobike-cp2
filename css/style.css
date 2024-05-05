@@ -27,8 +27,8 @@ img {
     justify-content: center;
 }
 #image-slider {
-    width: 35%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
 }
 #image-slider:hover {
@@ -72,7 +72,6 @@ a:hover {
     
 }
 .card button {
-    float: right;
     background-color: #ffffff;
     font-weight: bold;
     box-sizing: border-box;
