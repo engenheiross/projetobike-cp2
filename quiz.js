@@ -124,6 +124,7 @@ function criar_pergunta(perguntaObj) {
         novaPergunta.innerHTML = "<div class=\"perguntas\">" + perguntaObj.pergunta + "</div>"
         const respostas = document.createElement("div");
         respostas.classList.add("respostas");
+        respostas.id = "respostas";
         for(j = 0; j<Object.keys(perguntaObj.respostas).length; j++) {
             if(perguntaObj.respostas[j] == perguntaObj.correta) { 
                 respostas.innerHTML += "<p id=\"correta\"> <input name=button1"   + " type=\"radio\">" + perguntaObj.respostas[j]; + "</p>";
@@ -170,18 +171,38 @@ function mostrar_resultado() {
     document.getElementById("correta").style.backgroundColor = "green";
 
     checkmark = document.createElement("img");
+    checkmark.classList.add("check");
+    checkmark.id = "check";
     checkmark.src = "https://static-00.iconduck.com/assets.00/check-mark-button-emoji-2048x2048-lq7rf7h8.png";
     document.getElementById("correta").appendChild(checkmark);
-    if(document.getElementById("correta").children[0].checked) {
-        console.log("checked");
-        acertos += 1;
+    respostas = document.getElementById("respostas").children;
+    console.log(respostas);
+    for(i = 0; i<respostas.length; i++) {
+        if(respostas[i].children[0].checked && respostas[i].id != "correta") {
+            wrongmark = document.createElement("img");
+            wrongmark.id = "check";
+            wrongmark.src = "https://cdn3.emoji.gg/emojis/x.png";
+            respostas[i].appendChild(wrongmark);
+            console.log(respostas[i]);
+        }
+        if(respostas[i].children[0].checked && respostas[i].id == "correta") {
+            acertos+=1;
+        }
     }
 }
 function proxima_pergunta() {
     campoDePerguntas.removeChild(document.getElementsByClassName("pergunta")[0]);
     campoDePerguntas.removeChild(document.getElementById("botoes"));
     mostrandoResultado = false;
+
+    
+    if(perguntaIndex >= Object.keys(perguntas).length-1) {
+        finalizar_teste();
+        return 0;
+    }
     perguntaIndex += 1;
     criar_pergunta(perguntas[perguntaIndex]);
-    
+}
+function finalizar_teste() {
+    campoDePerguntas.innerHTML = "Você acertou " + acertos + "de " + Object.keys(perguntas).length + "perguntas. ";
 }
