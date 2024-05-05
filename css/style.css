@@ -146,10 +146,18 @@ h1 {
     height: 200px;
 }
 #quiz h3 {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+
 }
 .acertos {
     color: green;
+}
+
+.verde {
+    color: green;
+}
+.amarelo {
+    color: yellow;
+}
+.vermelho {
+    color: red;
 }

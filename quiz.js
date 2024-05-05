@@ -218,5 +218,25 @@ function proxima_pergunta() {
     criar_pergunta(perguntas[perguntaIndex]);
 }
 function finalizar_teste() {
-    campoDePerguntas.innerHTML = "<br><br><h3>Você acertou <span class=\"acertos\"> " + acertos + " </span> de " + Object.keys(perguntas).length + " perguntas. </h3>";
+    campoDePerguntas.style.justifyContent = "center";
+    campoDePerguntas.style.alignItems = "center";
+    campoDePerguntas.innerHTML = "<h3>Você acertou <span class=\"acertos\"> " + acertos + " </span> de " + Object.keys(perguntas).length + " perguntas. </h3>";
+
+    perguntas = Object.keys(perguntas).length;
+    let nivel;
+    if(acertos/perguntas === 1) {
+        nivel = "<span class=\"verde\">Perfeito</span>";
+    }
+    else if(acertos/perguntas >= 0.6) {
+        nivel = "<span class=\"verde\">Bom</span>";
+    }
+    else if (acertos/perguntas >= 0.3) {
+        nivel = "<span class=\"amarelo\">Mediano</span>";
+    }
+    else {
+        nivel = "<span class=\"vermelho\">Ruim</span>";
+    }
+    campoDePerguntas.innerHTML += "<h3>Seu conhecimento em Bicicletas é " + nivel + "</h3>"
+
+    console.log(acertos);
 }
