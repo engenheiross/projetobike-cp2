@@ -140,7 +140,7 @@ function criar_pergunta(perguntaObj) {
         novaPergunta.appendChild(respostas);
         campoDePerguntas.appendChild(novaPergunta);
 
-        document.getElementById("correta").style.backgroundColor = "pink";
+        document.getElementById("correta").style.backgroundColor = "#d0d8d4";
         botao1 = document.createElement("button");
         botao1.innerHTML = "Enviar Resposta";
         botao1.id = "botao1";
