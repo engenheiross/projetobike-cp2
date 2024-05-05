@@ -122,7 +122,12 @@ h3 {
     display: flex;
 }
 
-img {
+#correta img {
     width: 20px;
     height: 20px;
+}
+
+#logo img {
+    width: 100%;
+    height: 60px;
 }
