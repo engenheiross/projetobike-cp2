@@ -116,7 +116,7 @@ let acertos = 0;
 
 let mostrandoResultado = false;
 
-let campoDePerguntas = document.getElementById("perguntas")
+let campoDePerguntas = document.getElementById("quiz")
 
 function criar_pergunta(perguntaObj) {
     
@@ -162,9 +162,21 @@ function criar_pergunta(perguntaObj) {
 
     criar_pergunta(perguntas[0]);
 
+    
+function checar_vazio() {
+    respostas = document.getElementById("respostas").children;
+    
+    console.log(respostas);
+    let conta = 0;
+    for(i = 0; i<respostas.length; i++) {
+        if(respostas[i].children[0].checked) { conta += 1 }
+    }
 
+    return conta == 0;
+}
 
 function mostrar_resultado() {
+    if(checar_vazio()) { return 0;  }
     mostrandoResultado = true;
     botao1.innerHTML = "Continuar";
     botao1.onclick = proxima_pergunta;
@@ -183,6 +195,7 @@ function mostrar_resultado() {
             wrongmark.id = "check";
             wrongmark.src = "https://cdn3.emoji.gg/emojis/x.png";
             respostas[i].appendChild(wrongmark);
+            respostas[i].style.backgroundColor = "red";
             console.log(respostas[i]);
         }
         if(respostas[i].children[0].checked && respostas[i].id == "correta") {
@@ -191,6 +204,7 @@ function mostrar_resultado() {
     }
 }
 function proxima_pergunta() {
+
     campoDePerguntas.removeChild(document.getElementsByClassName("pergunta")[0]);
     campoDePerguntas.removeChild(document.getElementById("botoes"));
     mostrandoResultado = false;
@@ -204,5 +218,5 @@ function proxima_pergunta() {
     criar_pergunta(perguntas[perguntaIndex]);
 }
 function finalizar_teste() {
-    campoDePerguntas.innerHTML = "Você acertou " + acertos + "de " + Object.keys(perguntas).length + "perguntas. ";
+    campoDePerguntas.innerHTML = "<br><br><h3>Você acertou <span class=\"acertos\"> " + acertos + " </span> de " + Object.keys(perguntas).length + " perguntas. </h3>";
 }
