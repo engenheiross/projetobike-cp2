@@ -3,4 +3,4 @@
 Link do github: https://github.com/engenheiross/projetobike-cp2
 
 
-Link do GitHub Pages: https:://engenheiross.github.io/projetobike-cp2/
+Link do GitHub Pages: https://engenheiross.github.io/projetobike-cp2/
