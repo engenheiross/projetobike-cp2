@@ -238,5 +238,12 @@ function finalizar_teste() {
     }
     campoDePerguntas.innerHTML += "<h3>Seu conhecimento em Bicicletas é " + nivel + "</h3>"
 
+    botao1 = document.createElement("button");
+    botao1.innerHTML = "Voltar";
+    botao1.id = "botao1";
+    botao1.onclick = function() { document.location.href = "index.html"; }
+
+    campoDePerguntas.appendChild(botao1);
+
     console.log(acertos);
 }

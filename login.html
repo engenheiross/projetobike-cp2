@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="index.html">Index</a></li>
                 <li><a>Loja</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="login.html">Quiz</a></li>
                 <li><a>Contato</a></li>
                 <li><a href="login.html">Login</a></li>
             </ul>
@@ -27,9 +27,9 @@
         <p>Faça seu login:</p>
 
         <form>
-            Email:<input type="email" placeholder="Digite seu email">
-            Senha:<input type="password" placeholder="Digite sua senha">
-            <input type="submit" value="Enviar">
+            Email:<input type="email" id="email" placeholder="Digite seu email">
+            Senha:<input type="password" id="password" placeholder="Digite sua senha">
+            <button id="enviar", onclick="send()">Enviar</button>
         </form>
     </div>
 
@@ -38,6 +38,6 @@
         <h5>© 2024 - Todos os direitos reservados.</h5>
     </footer>
 
-    <script src="./quiz.js"></script>
+    <script src="./login.js"></script>
 </body>
 </html>
